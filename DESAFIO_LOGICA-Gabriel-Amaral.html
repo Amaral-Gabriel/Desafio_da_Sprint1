@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onde Abastecer?</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(56, 54, 54);
+        }
+    </style>
+</body>
+<script>
+
+    function verificaNumber(num) { // Verifica se o número digitado é válido
+        while(isNaN(num) || num == 0){
+        num = prompt("Voce digitou um número invalido. Digite um número válido!").replace(" ", "").replace(",", ".");
+        num = parseFloat(num);
+        }
+        return num;
+    }
+
+    // Recebe a entrada da distancia percorrida e substitui a virgula por ponto e tira os espaços vazios
+    var distancia_Percorrida = prompt("Qual a distância percorrida da sua casa até o seu trabalho? (em KM)").replace(" ", "").replace(",", ".");
+    // Transforma em number
+    distancia_Percorrida = parseFloat(distancia_Percorrida);
+
+    // Chama a função de validação
+    distancia_Percorrida = verificaNumber(distancia_Percorrida);
+    
+    // Recebe a entrada do consumo médio e substitui a virgula por ponto e tira os espaços vazios
+    var consumo_Medio = prompt("Qual o consumo médio do seu veículo? (em Km/L)").replace(" ", "").replace(",", ".");
+    // Transforma em number
+    consumo_Medio = parseFloat(consumo_Medio);
+
+    // Chama a função de validação
+    consumo_Medio = verificaNumber(consumo_Medio);
+
+    // Calcula o consumo necessário
+    var consumo_NecesarioLitros = distancia_Percorrida / consumo_Medio;
+
+    // Operador ternário para colocar a frase no plural ou não
+    var litro = consumo_NecesarioLitros <= 1 ? "é " + consumo_NecesarioLitros.toFixed(2) + " litro" : "são " + consumo_NecesarioLitros.toFixed(2) + " litros";
+
+    // Exibe a quantidade necessária
+    alert(`O consumo necessário ${litro}.`);
+
+    let quantidade_Postos_Pesquisados = prompt("Em quantos postos você pesquisou?");
+    quantidade_Postos_Pesquisados = parseInt(quantidade_Postos_Pesquisados);
+
+    quantidade_Postos_Pesquisados = verificaNumber(quantidade_Postos_Pesquisados);
+
+
+    for (var i = 1; i < quantidade_Postos_Pesquisados + 1; i++) {
+
+        let preço_Posto = prompt(`Digite o valor encontrado (em R$) no posto ${i}:`).replace(" ", "").replace(",", ".");
+        preço_Posto = verificaNumber(preço_Posto);
+        console.log(typeof(preço_Posto));
+
+        let soma_total_Valores_Pesquisados = preço_Posto + soma_total_Valores_Pesquisados;
+        
+    }
+    
+    console.log(soma_total_Valores_Pesquisados);
+
+
+
+    
+</script>
+</html>
