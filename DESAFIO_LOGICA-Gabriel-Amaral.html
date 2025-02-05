@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onde Abastecer?</title>
 </head>
+
 <body>
 
     <header></header>
@@ -18,21 +19,30 @@
         </div>
         
     </main>
-    <footer></footer>
+    <footer>
+        <p>Criado por Gabriel Amaral para o Ford ENTER</p>
+    </footer>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-        body{
-            font-family: "Roboto", serif;
+        body {
+            margin: 0;
+            padding: 0;
             background: rgb(255,235,120);
             background: linear-gradient(90deg, rgba(255,235,120,1) 0%, rgba(249,255,151,1) 39%, rgba(255,255,255,1) 100%);
+        }
+
+        main{
+            font-family: "Roboto", serif;
             color: white;
             width: 99vw;
-            height: 98vh;
+            height: 93vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         .content {
@@ -60,13 +70,26 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-}
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            color: white;
+            width:100vw;
+            height: 40px;
+            padding: 0;
+            margin: 0;
+            position: fixed;
+            bottom: 0;
+        }
+
 
     </style>
 
-
     <script>
-
         function verificaNumber(num) { // Verifica se o número digitado é válido
             while(isNaN(num) || num == 0){
             num = prompt("Voce digitou um número invalido. Digite um número válido!").replace(" ", "").replace(",", ".");
@@ -100,49 +123,56 @@
         // Exibe a quantidade necessária
         alert(`O consumo necessário ${litro}.`);
     
+        // Recebe a quantidade de postos
         let quantidade_Postos_Pesquisados = prompt("Em quantos postos você pesquisou?");
         quantidade_Postos_Pesquisados = parseInt(quantidade_Postos_Pesquisados);
     
+        // Verifica se é número
         quantidade_Postos_Pesquisados = verificaNumber(quantidade_Postos_Pesquisados);
-    
+
+        // Cria a variavel que vai ser utilizada para fazer a média
         let soma_total_Valores_Pesquisados = 0;
         soma_total_Valores_Pesquisados = parseFloat(soma_total_Valores_Pesquisados);
     
+        // Cria a variavel que vai ser utilizada para exibir o menor valor pesquisado
         let menor_Valor_Pesquisado = 0;
         //menor_Valor_Pesquisado = parseFloat(menor_Valor_Pesquisado);
     
-        for (var i = 1; i < quantidade_Postos_Pesquisados + 1; i++) {
-    
+        for (var i = 1; i < quantidade_Postos_Pesquisados + 1; i++) { // Cria um laço para cada posto pesquisado
+
+            // Recebe o preço de cada posto
             let preço_Posto = prompt(`Digite o valor encontrado (em R$) no posto ${i}:`).replace(" ", "").replace(",", ".");
             preço_Posto = parseFloat(preço_Posto);
     
+            // Verifica se é número
             preço_Posto = verificaNumber(preço_Posto);
     
-            if (i == 1) {
+            if (i == 1) { // Caso seja primeira interção define o preço do posto como o menor preço
                 menor_Valor_Pesquisado = preço_Posto;
-            } else {
+            } else { 
                 if (preço_Posto < menor_Valor_Pesquisado){
                 menor_Valor_Pesquisado = preço_Posto;
                 }
             }
     
+            // Incrementa o preço do combustivel na variavel de soma
             soma_total_Valores_Pesquisados = preço_Posto + soma_total_Valores_Pesquisados;
         }
         
+        // Calcula amédia
         let media = soma_total_Valores_Pesquisados / quantidade_Postos_Pesquisados;
         
+        // Calcula o gasto diario da ida e volta do percurso
         let gasto_Diario = 2 * (consumo_NecesarioLitros * menor_Valor_Pesquisado);
         
         //alert(`O consumo necessário ${litro}.\nO menor valor pesquisado é R$ ${menor_Valor_Pesquisado.toFixed(2)}.\nA média dos valores pesquisados é R$ ${media.toFixed(2)}.\nO gasto diário (ida e volta) é R$ ${gasto_Diario.toFixed(2)}.`);
         
-        function imprimeTexto() {
+        function imprimeTexto() { // Muda o o texto exibido no HTML
             document.querySelector(".consumo_NecesarioLitros").innerHTML = `Consumo necessário ${litro}`;
             document.querySelector(".menor_Valor_Pesquisado").innerHTML = `Menor valor pesquisado: R$ ${menor_Valor_Pesquisado.toFixed(2)}`;
             document.querySelector(".media").innerHTML = `Média dos valores pesquisados: R$ ${media.toFixed(2)}`;
             document.querySelector(".gasto_Diario").innerHTML = `Gasto diário (ida e volta): R$ ${gasto_Diario.toFixed(2)}`;
         }
-        
-
     </script>
 </body>
 
