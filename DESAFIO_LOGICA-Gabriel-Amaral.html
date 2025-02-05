@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onde Abastecer?</title>
-</head>
-<body>
-    <style>
-        body{
-            background-color: rgb(56, 54, 54);
-        }
-    </style>
-</body>
 <script>
 
     function verificaNumber(num) { // Verifica se o número digitado é válido
@@ -52,21 +38,34 @@
 
     quantidade_Postos_Pesquisados = verificaNumber(quantidade_Postos_Pesquisados);
 
+    let soma_total_Valores_Pesquisados = 0;
+    soma_total_Valores_Pesquisados = parseFloat(soma_total_Valores_Pesquisados);
+
+    let menor_Valor_Pesquisado = 0;
+    //menor_Valor_Pesquisado = parseFloat(menor_Valor_Pesquisado);
 
     for (var i = 1; i < quantidade_Postos_Pesquisados + 1; i++) {
 
         let preço_Posto = prompt(`Digite o valor encontrado (em R$) no posto ${i}:`).replace(" ", "").replace(",", ".");
-        preço_Posto = verificaNumber(preço_Posto);
-        console.log(typeof(preço_Posto));
+        preço_Posto = parseFloat(preço_Posto);
 
-        let soma_total_Valores_Pesquisados = preço_Posto + soma_total_Valores_Pesquisados;
-        
+        preço_Posto = verificaNumber(preço_Posto);
+
+        if (i == 1) {
+            menor_Valor_Pesquisado = preço_Posto;
+        } else {
+            if (preço_Posto < menor_Valor_Pesquisado){
+            menor_Valor_Pesquisado = preço_Posto;
+            }
+        }
+
+        soma_total_Valores_Pesquisados = preço_Posto + soma_total_Valores_Pesquisados;
     }
     
-    console.log(soma_total_Valores_Pesquisados);
-
-
-
+    let media = soma_total_Valores_Pesquisados / quantidade_Postos_Pesquisados;
+    
+    let gasto_Diario = 2 * (consumo_NecesarioLitros * menor_Valor_Pesquisado);
+    
+    alert(`O consumo necessário ${litro}.\nO menor valor pesquisado é R$ ${menor_Valor_Pesquisado.toFixed(2)}.\nA média dos valores pesquisados é R$ ${media.toFixed(2)}.\nO gasto diário (ida e volta) é R$ ${gasto_Diario.toFixed(2)}.`);
     
 </script>
-</html>
