@@ -1,71 +1,149 @@
-<script>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onde Abastecer?</title>
+</head>
+<body>
 
-    function verificaNumber(num) { // Verifica se o número digitado é válido
-        while(isNaN(num) || num == 0){
-        num = prompt("Voce digitou um número invalido. Digite um número válido!").replace(" ", "").replace(",", ".");
-        num = parseFloat(num);
+    <header></header>
+    <main>
+        <div class="content">
+            <p class="consumo_NecesarioLitros">Consumo necessário: ?</p>
+            <p class="menor_Valor_Pesquisado">Menor valor pesquisado: ?</p>
+            <p class="media">Média dos preços pesquisados: ?</p>
+            <p class="gasto_Diario">Gasto diário (ida e volta): ?</p>
+            <button class="button" type="button" onclick="imprimeTexto()">VER RESULTADO</button>
+        </div>
+        
+    </main>
+    <footer></footer>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body{
+            font-family: "Roboto", serif;
+            background: rgb(255,235,120);
+            background: linear-gradient(90deg, rgba(255,235,120,1) 0%, rgba(249,255,151,1) 39%, rgba(255,255,255,1) 100%);
+            color: white;
+            width: 99vw;
+            height: 98vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        return num;
-    }
 
-    // Recebe a entrada da distancia percorrida e substitui a virgula por ponto e tira os espaços vazios
-    var distancia_Percorrida = prompt("Qual a distância percorrida da sua casa até o seu trabalho? (em KM)").replace(" ", "").replace(",", ".");
-    // Transforma em number
-    distancia_Percorrida = parseFloat(distancia_Percorrida);
+        .content {
+            background: rgb(48,48,48);
+            background: linear-gradient(288deg, rgba(48,48,48,1) 0%, rgba(105,105,105,1) 80%, rgba(129,129,129,1) 100%);
+            width: 500px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: solid 8px;
+            border-radius: 5%;
+            border-color: rgb(46, 46, 46);
+            font-size: 16px;
+        }
 
-    // Chama a função de validação
-    distancia_Percorrida = verificaNumber(distancia_Percorrida);
-    
-    // Recebe a entrada do consumo médio e substitui a virgula por ponto e tira os espaços vazios
-    var consumo_Medio = prompt("Qual o consumo médio do seu veículo? (em Km/L)").replace(" ", "").replace(",", ".");
-    // Transforma em number
-    consumo_Medio = parseFloat(consumo_Medio);
+        .button {
+            background-color: #000000; 
+            border: solid #8d8d8d 5px;
+            border-radius: 5%;
+            color: white;
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+}
 
-    // Chama a função de validação
-    consumo_Medio = verificaNumber(consumo_Medio);
+    </style>
 
-    // Calcula o consumo necessário
-    var consumo_NecesarioLitros = distancia_Percorrida / consumo_Medio;
 
-    // Operador ternário para colocar a frase no plural ou não
-    var litro = consumo_NecesarioLitros <= 1 ? "é " + consumo_NecesarioLitros.toFixed(2) + " litro" : "são " + consumo_NecesarioLitros.toFixed(2) + " litros";
+    <script>
 
-    // Exibe a quantidade necessária
-    alert(`O consumo necessário ${litro}.`);
-
-    let quantidade_Postos_Pesquisados = prompt("Em quantos postos você pesquisou?");
-    quantidade_Postos_Pesquisados = parseInt(quantidade_Postos_Pesquisados);
-
-    quantidade_Postos_Pesquisados = verificaNumber(quantidade_Postos_Pesquisados);
-
-    let soma_total_Valores_Pesquisados = 0;
-    soma_total_Valores_Pesquisados = parseFloat(soma_total_Valores_Pesquisados);
-
-    let menor_Valor_Pesquisado = 0;
-    //menor_Valor_Pesquisado = parseFloat(menor_Valor_Pesquisado);
-
-    for (var i = 1; i < quantidade_Postos_Pesquisados + 1; i++) {
-
-        let preço_Posto = prompt(`Digite o valor encontrado (em R$) no posto ${i}:`).replace(" ", "").replace(",", ".");
-        preço_Posto = parseFloat(preço_Posto);
-
-        preço_Posto = verificaNumber(preço_Posto);
-
-        if (i == 1) {
-            menor_Valor_Pesquisado = preço_Posto;
-        } else {
-            if (preço_Posto < menor_Valor_Pesquisado){
-            menor_Valor_Pesquisado = preço_Posto;
+        function verificaNumber(num) { // Verifica se o número digitado é válido
+            while(isNaN(num) || num == 0){
+            num = prompt("Voce digitou um número invalido. Digite um número válido!").replace(" ", "").replace(",", ".");
+            num = parseFloat(num);
             }
+            return num;
         }
+    
+        // Recebe a entrada da distancia percorrida e substitui a virgula por ponto e tira os espaços vazios
+        var distancia_Percorrida = prompt("Qual a distância percorrida da sua casa até o seu trabalho? (em KM)").replace(" ", "").replace(",", ".");
+        // Transforma em number
+        distancia_Percorrida = parseFloat(distancia_Percorrida);
+    
+        // Chama a função de validação
+        distancia_Percorrida = verificaNumber(distancia_Percorrida);
+        
+        // Recebe a entrada do consumo médio e substitui a virgula por ponto e tira os espaços vazios
+        var consumo_Medio = prompt("Qual o consumo médio do seu veículo? (em Km/L)").replace(" ", "").replace(",", ".");
+        // Transforma em number
+        consumo_Medio = parseFloat(consumo_Medio);
+    
+        // Chama a função de validação
+        consumo_Medio = verificaNumber(consumo_Medio);
+    
+        // Calcula o consumo necessário
+        var consumo_NecesarioLitros = distancia_Percorrida / consumo_Medio;
+    
+        // Operador ternário para colocar a frase no plural ou não
+        var litro = consumo_NecesarioLitros <= 1 ? "é " + consumo_NecesarioLitros.toFixed(2) + " litro" : "são " + consumo_NecesarioLitros.toFixed(2) + " litros";
+    
+        // Exibe a quantidade necessária
+        alert(`O consumo necessário ${litro}.`);
+    
+        let quantidade_Postos_Pesquisados = prompt("Em quantos postos você pesquisou?");
+        quantidade_Postos_Pesquisados = parseInt(quantidade_Postos_Pesquisados);
+    
+        quantidade_Postos_Pesquisados = verificaNumber(quantidade_Postos_Pesquisados);
+    
+        let soma_total_Valores_Pesquisados = 0;
+        soma_total_Valores_Pesquisados = parseFloat(soma_total_Valores_Pesquisados);
+    
+        let menor_Valor_Pesquisado = 0;
+        //menor_Valor_Pesquisado = parseFloat(menor_Valor_Pesquisado);
+    
+        for (var i = 1; i < quantidade_Postos_Pesquisados + 1; i++) {
+    
+            let preço_Posto = prompt(`Digite o valor encontrado (em R$) no posto ${i}:`).replace(" ", "").replace(",", ".");
+            preço_Posto = parseFloat(preço_Posto);
+    
+            preço_Posto = verificaNumber(preço_Posto);
+    
+            if (i == 1) {
+                menor_Valor_Pesquisado = preço_Posto;
+            } else {
+                if (preço_Posto < menor_Valor_Pesquisado){
+                menor_Valor_Pesquisado = preço_Posto;
+                }
+            }
+    
+            soma_total_Valores_Pesquisados = preço_Posto + soma_total_Valores_Pesquisados;
+        }
+        
+        let media = soma_total_Valores_Pesquisados / quantidade_Postos_Pesquisados;
+        
+        let gasto_Diario = 2 * (consumo_NecesarioLitros * menor_Valor_Pesquisado);
+        
+        //alert(`O consumo necessário ${litro}.\nO menor valor pesquisado é R$ ${menor_Valor_Pesquisado.toFixed(2)}.\nA média dos valores pesquisados é R$ ${media.toFixed(2)}.\nO gasto diário (ida e volta) é R$ ${gasto_Diario.toFixed(2)}.`);
+        
+        function imprimeTexto() {
+            document.querySelector(".consumo_NecesarioLitros").innerHTML = `Consumo necessário ${litro}`;
+            document.querySelector(".menor_Valor_Pesquisado").innerHTML = `Menor valor pesquisado: R$ ${menor_Valor_Pesquisado.toFixed(2)}`;
+            document.querySelector(".media").innerHTML = `Média dos valores pesquisados: R$ ${media.toFixed(2)}`;
+            document.querySelector(".gasto_Diario").innerHTML = `Gasto diário (ida e volta): R$ ${gasto_Diario.toFixed(2)}`;
+        }
+        
 
-        soma_total_Valores_Pesquisados = preço_Posto + soma_total_Valores_Pesquisados;
-    }
-    
-    let media = soma_total_Valores_Pesquisados / quantidade_Postos_Pesquisados;
-    
-    let gasto_Diario = 2 * (consumo_NecesarioLitros * menor_Valor_Pesquisado);
-    
-    alert(`O consumo necessário ${litro}.\nO menor valor pesquisado é R$ ${menor_Valor_Pesquisado.toFixed(2)}.\nA média dos valores pesquisados é R$ ${media.toFixed(2)}.\nO gasto diário (ida e volta) é R$ ${gasto_Diario.toFixed(2)}.`);
-    
-</script>
+    </script>
+</body>
+
+</html>
