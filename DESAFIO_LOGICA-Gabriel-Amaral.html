@@ -10,12 +10,37 @@
 
     <header></header>
     <main>
+        <img class="logo" src="ford-logo-6.png" alt="Logo da Ford azul">
+
         <div class="content">
-            <p class="consumption_Necessary_Liters">Consumo necessário: ?</p>
-            <p class="lowest_Price_Surveyed">Menor valor pesquisado: ?</p>
-            <p class="media">Média dos preços pesquisados: ?</p>
-            <p class="daily_Expense">Gasto diário (ida e volta): ?</p>
-            <button class="button" type="button" onclick="imprimeTexto()">VER RESULTADO</button>
+            <div class="inputs">
+                <form class="formulario" action="">
+                    <div class="perguntas">
+                        <label for="percurso">Digite a distancia percorrida:</label><br>
+                        <input type="number" id="percurso"> <br>
+                    </div>
+                    <div class="perguntas">
+                        <label for="consumo">Qual o consumo médio do seu veículo? (em Km/L):</label><br>
+                        <input type="number" id="consumo"><br>
+                    </div>
+                    <div class="perguntas">
+                        <label for="numero_de_postos">Em quantos postos você pesquisou?</label><br>
+                        <input type="number" id="numero_de_postos"><br>
+                    </div>
+                    <div class="perguntas">
+                        <label for="preco_do_posto">Qual o valor no posto "i"?</label><br>
+                        <input type="number" id="preco_do_posto"><br>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="response">
+                <p class="consumption_Necessary_Liters">Consumo necessário: ?</p>
+                <p class="lowest_Price_Surveyed">Menor valor pesquisado: ?</p>
+                <p class="media">Média dos preços pesquisados: ?</p>
+                <p class="daily_Expense">Gasto diário (ida e volta): ?</p>
+                <button class="button" type="button" onclick="imprimeTexto()">VER RESULTADO</button>
+            </div>
         </div>
         
     </main>
@@ -28,42 +53,107 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
         body {
+            font-family: "Roboto", serif;
             margin: 0;
             padding: 0;
-            background: rgb(255,235,120);
-            background: linear-gradient(90deg, rgba(255,235,120,1) 0%, rgba(249,255,151,1) 39%, rgba(255,255,255,1) 100%);
+            /* background: rgb(255,235,120);
+            background: linear-gradient(90deg, rgba(255,235,120,1) 0%, rgba(249,255,151,1) 39%, rgba(255,255,255,1) 100%); */
+            background-image: url(pexels-sanaan-3116970.jpg);
+            background-size: 100vw 100vh;
+            background-repeat: no-repeat;
         }
 
         main{
             font-family: "Roboto", serif;
             color: white;
-            width: 99vw;
-            height: 93vh;
+            width: 100vw;
+            height: 100vh;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             margin: 0;
             padding: 0;
         }
 
+        .logo {
+            align-self: first baseline;
+            margin: 60px 90px;
+            max-width: 270px;
+            max-height: 170px;
+            width: auto;
+            height: auto;
+        }
+
         .content {
             background: rgb(48,48,48);
             background: linear-gradient(288deg, rgba(48,48,48,1) 0%, rgba(105,105,105,1) 80%, rgba(129,129,129,1) 100%);
-            width: 800px;
-            height: 300px;
+            width: 400px;
+            height: 700px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             border: solid 8px;
-            border-radius: 5%;
+            border-radius: 3%;
             border-color: rgb(46, 46, 46);
             font-size: 16px;
+            padding: 40px 20px;
+            margin-right: 100px;
+            overflow: visible;
+        }
+
+        .formulario {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 10px;
+            
+        }
+
+        .inputs {
+            background-color: rgba(255, 255, 255, 0);
+            width: 300px;
+            color: rgb(255, 255, 255);
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+        
+        }
+
+        input {
+
+            width: 200px;
+            height: 50px;
+            background-color: transparent;
+            border: solid 2px;
+            border-radius: 5%;
+            border-color: #8d8d8d8c;
+        }
+        .perguntas{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 5 px;
+        }
+
+        .response {
+            background-color: rgb(255, 255, 255);
+            width: 300px;
+            margin: 50px;
+            color: black;
+            padding: 30px;
+            
         }
 
         .button {
             background-color: #000000; 
-            border: solid #8d8d8d 5px;
+            border: solid #8d8d8d 3px;
             border-radius: 5%;
             color: white;
             padding: 10px 30px;
