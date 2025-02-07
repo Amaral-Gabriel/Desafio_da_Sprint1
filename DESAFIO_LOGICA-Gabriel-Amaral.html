@@ -10,38 +10,46 @@
 
     <header></header>
     <main>
+        
+        <div class="fundo"></div>
+
         <img class="logo" src="ford-logo-6.png" alt="Logo da Ford azul">
 
         <div class="content">
-            <div class="inputs">
-                <form class="formulario" action="">
-                    <div class="perguntas">
-                        <label for="percurso">Digite a distancia percorrida:</label><br>
-                        <input type="number" id="percurso"> <br>
-                    </div>
-                    <div class="perguntas">
-                        <label for="consumo">Qual o consumo médio do seu veículo? (em Km/L):</label><br>
-                        <input type="number" id="consumo"><br>
-                    </div>
-                    <div class="perguntas">
-                        <label for="numero_de_postos">Em quantos postos você pesquisou?</label><br>
-                        <input type="number" id="numero_de_postos"><br>
-                    </div>
-                    <div class="perguntas">
-                        <label for="preco_do_posto">Qual o valor no posto "i"?</label><br>
-                        <input type="number" id="preco_do_posto"><br>
-                    </div>
-                    
-                </form>
-            </div>
-            <div class="response">
-                <p class="consumption_Necessary_Liters">Consumo necessário: ?</p>
-                <p class="lowest_Price_Surveyed">Menor valor pesquisado: ?</p>
-                <p class="media">Média dos preços pesquisados: ?</p>
-                <p class="daily_Expense">Gasto diário (ida e volta): ?</p>
-                <button class="button" type="button" onclick="imprimeTexto()">VER RESULTADO</button>
-            </div>
+            
         </div>
+        <div class="response">
+            <div class="textos_da_Resposta">
+                <p class="consumo_Necessario">Consumo necessário:</p>
+                <p class="consumption_Necessary_Liters">25</p>
+                <!-- <p class="lowest_Price_Surveyed">Menor valor pesquisado: ?</p>
+                <p class="media">Média dos preços pesquisados: ?</p>
+                <p class="daily_Expense">Gasto diário (ida e volta): ?</p> -->
+                <!-- <button class="button" type="button" onclick="imprimeTexto()">VER RESULTADO</button> -->
+                <div class="inputs">
+                    <form class="formulario" action="">
+                        <div class="perguntas">
+                            <label for="percurso">Digite a distancia percorrida:</label><br>
+                            <input type="number" id="percurso"> <br>
+                        </div>
+                        <div class="perguntas">
+                            <label for="consumo">Qual o consumo médio do seu veículo? (em Km/L):</label><br>
+                            <input type="number" id="consumo"><br>
+                        </div>
+                        <div class="perguntas">
+                            <label for="numero_de_postos">Em quantos postos você pesquisou?</label><br>
+                            <input type="number" id="numero_de_postos"><br>
+                        </div>
+                        <div class="perguntas">
+                            <label for="preco_do_posto">Qual o valor no posto "i"?</label><br>
+                            <input type="number" id="preco_do_posto"><br>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>  
+        </div>
+        
         
     </main>
     <footer>
@@ -52,13 +60,25 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+        @font-face {
+        font-family:'FontCalculator';
+        src: url(Calculator.ttf);
+        }
+
         body {
             font-family: "Roboto", serif;
             margin: 0;
             padding: 0;
             /* background: rgb(255,235,120);
             background: linear-gradient(90deg, rgba(255,235,120,1) 0%, rgba(249,255,151,1) 39%, rgba(255,255,255,1) 100%); */
-            background-image: url(pexels-sanaan-3116970.jpg);
+            /* background-image: url(pexels-sanaan-3116970.jpg);
+            -webkit-mask-image: linear-gradient(to top, transparent 25%, rgb(0, 0, 0) 100%);
+            background-size: 100vw 100vh;
+            background-repeat: no-repeat; */
+
+            background-image: 
+            linear-gradient(to left,  rgb(255, 255, 255), rgb(255, 255, 255) ,rgba(255, 255, 255, 0.527),  rgba(105, 105, 105, 0)), /* Gradiente de escurecimento */
+            url(pexels-sanaan-3116970.jpg);
             background-size: 100vw 100vh;
             background-repeat: no-repeat;
         }
@@ -77,31 +97,80 @@
 
         .logo {
             align-self: first baseline;
-            margin: 60px 90px;
+            margin: 70px 0px;
+            margin-right: 00px;
             max-width: 270px;
             max-height: 170px;
             width: auto;
             height: auto;
         }
 
-        .content {
-            background: rgb(48,48,48);
-            background: linear-gradient(288deg, rgba(48,48,48,1) 0%, rgba(105,105,105,1) 80%, rgba(129,129,129,1) 100%);
-            width: 400px;
-            height: 700px;
+        .fundo {
+            display: flex;
+            background-color: white;
+            height: 100vh;
+            align-self: self-end;
+        }
+
+        /* .bomba {
+            max-width: 500px;
+            max-height:500px;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }   */
+
+        .response {
+            color: black;
+            background-image: url(posto-de-gasolina\ \(1\)\ \(2\).png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            width: 50vw;
+            height: 900px;
+            margin-right: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            border: solid 8px;
-            border-radius: 3%;
-            border-color: rgb(46, 46, 46);
             font-size: 16px;
-            padding: 40px 20px;
-            margin-right: 100px;
+            
             overflow: visible;
         }
 
+        .textos_da_Resposta {
+            margin-top: 110px;
+            font-size: 20px;
+            text-align: center;
+            background-color: rgb(70, 138, 70);
+            width: 300px;
+            height: 160px;
+            padding: 18px;
+            
+        }
+
+        .consumption_Necessary_Liters {
+            font-family: "FontCalculator";
+            font-size: 50px;
+            margin: 20px;
+        }
+
+        
+
+        
+        .inputs {
+            background-color: rgba(255, 255, 255, 0);
+            width: 325px;
+            height: 400px;
+            color: rgb(0, 0, 0);
+            padding: 0px;
+            padding-top: 85px;
+            display: flex;
+            flex-direction: column;
+            margin-left: -15px;align-items: center;
+            
+        }
         .formulario {
             padding: 0;
             margin: 0;
@@ -110,22 +179,12 @@
             flex-wrap: wrap;
             justify-content: flex-start;
             align-items: flex-start;
-            gap: 10px;
+            gap: 5px;
             
         }
-
-        .inputs {
-            background-color: rgba(255, 255, 255, 0);
-            width: 300px;
-            color: rgb(255, 255, 255);
-            padding: 0px;
-            display: flex;
-            flex-direction: column;
         
-        }
-
         input {
-
+            
             width: 200px;
             height: 50px;
             background-color: transparent;
@@ -142,14 +201,14 @@
             gap: 5 px;
         }
 
-        .response {
+        /* .response {
             background-color: rgb(255, 255, 255);
             width: 300px;
             margin: 50px;
             color: black;
             padding: 30px;
             
-        }
+        } */
 
         .button {
             background-color: #000000; 
@@ -177,6 +236,7 @@
             bottom: 0;
         }
     </style>
+</html>
 
     <script>
         function checkNumber(num) { // Verifica se o número digitado é válido
