@@ -1,336 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-br"
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio de lógica ⛽️</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-
 <body>
-
     <header></header>
     <main>
-        
         <div class="fundo"></div>
-
         <img class="logo" src="ford-logo-6.png" alt="Logo da Ford azul">
-
-        <div class="content">
-            
-        </div>
+        <div class="content"></div>
         <div class="response">
             <div class="textos_da_Resposta">
                 <p class="consumo_Necessario">Consumo necessário:</p>
                 <p class="consumption_Necessary_Liters">25</p>
-                <!-- <p class="lowest_Price_Surveyed">Menor valor pesquisado: ?</p>
-                <p class="media">Média dos preços pesquisados: ?</p>
-                <p class="daily_Expense">Gasto diário (ida e volta): ?</p> -->
-                <!-- <button class="button" type="button" onclick="imprimeTexto()">VER RESULTADO</button> -->
                 <div class="inputs">
-                    <form class="formulario" action="">
+                    <form class="formulario" id="form">
                         <div class="perguntas">
-                            <label for="percurso">Digite a distancia percorrida:</label>
-                            <input type="number" id="percurso"> <br>
+                            <label for="percurso">Digite a distância percorrida:</label>
+                            <input type="number" id="percurso" step="0.1" min="0.1" placeholder="Exemplo: 30">
                         </div>
                         <div class="perguntas">
                             <label for="consumo">Qual o consumo médio do seu veículo? (em Km/L):</label>
-                            <input type="number" id="consumo"><br>
+                            <input type="number" id="consumo" step="0.1" min="0.1" placeholder="Exemplo: 12"><br>
                         </div>
                         <div class="perguntas">
                             <label for="numero_de_postos">Em quantos postos você pesquisou?</label>
-                            <input type="number" id="numero_de_postos"><br>
+                            <input type="number" id="numero_de_postos" step="1" min="1" placeholder="Exemplo: 4"><br>
                         </div>
                         <div class="perguntas">
-                            <label for="preco_do_posto">Qual o valor no posto "i"? (em R$)</label>
-                            <input type="number" id="preco_do_posto"><br>
+                            <label for="preco_do_posto">Qual o valor no posto 1? (em R$)</label>
+                            <input type="number" id="preco_do_posto" step="0.01" min="0.01" placeholder="Exemplo: 5,94">
+                            <button type="button" id="button_Add" class="button_Add">Adicionar +</button>
                         </div>
-                        <button class="button" type="button" onclick="imprimeTexto()">VER RESULTADO</button>
+                        <button type="button" id="button_Result" class="button_Result">VER RESULTADO</button>
                     </form>
                 </div>
             </div>  
         </div>
-        
-        
     </main>
     <footer>
         <p>Criado por Gabriel Amaral para o Ford ENTER</p>
     </footer>
-
-    <!-- Parte do código dedicada a estilização com CSS, caso não seja necessario, pode excluir toda a tag "style", que economiza 65 linhas -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-        @font-face {
-        font-family:'FontCalculator';
-        src: url(Calculator.ttf);
-        }
-
-        body {
-            font-family: "Roboto", serif;
-            margin: 0;
-            padding: 0;
-            /* background: rgb(255,235,120);
-            background: linear-gradient(90deg, rgba(255,235,120,1) 0%, rgba(249,255,151,1) 39%, rgba(255,255,255,1) 100%); */
-            /* background-image: url(pexels-sanaan-3116970.jpg);
-            -webkit-mask-image: linear-gradient(to top, transparent 25%, rgb(0, 0, 0) 100%);
-            background-size: 100vw 100vh;
-            background-repeat: no-repeat; */
-
-            background-image: 
-            linear-gradient(to left,  rgb(255, 255, 255), rgb(255, 255, 255) ,rgba(255, 255, 255, 0.527),  rgba(105, 105, 105, 0)), /* Gradiente de escurecimento */
-            url(pexels-sanaan-3116970.jpg);
-            background-size: 100vw 100vh;
-            background-repeat: no-repeat;
-        }
-
-        main{
-            font-family: "Roboto", serif;
-            color: white;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .logo {
-            align-self: first baseline;
-            margin: 70px 0px;
-            margin-right: 00px;
-            max-width: 270px;
-            max-height: 170px;
-            width: auto;
-            height: auto;
-        }
-
-        .fundo {
-            display: flex;
-            background-color: white;
-            height: 100vh;
-            align-self: self-end;
-        }
-
-        /* .bomba {
-            max-width: 500px;
-            max-height:500px;
-            width: auto;
-            height: auto;
-            margin: 0;
-            padding: 0;
-        }   */
-
-        .response {
-            color: black;
-            background-image: url(posto-de-gasolina\ \(1\)\ \(2\).png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            width: 50vw;
-            height: 900px;
-            margin-right: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            font-size: 16px;
-            
-            overflow: visible;
-        }
-
-        .textos_da_Resposta {
-            margin-top: 110px;
-            font-size: 20px;
-            text-align: center;
-            background-color: rgb(70, 138, 70);
-            width: 300px;
-            height: 160px;
-            padding: 18px;
-            
-        }
-
-        .consumption_Necessary_Liters {
-            font-family: "FontCalculator";
-            font-size: 50px;
-            margin: 20px;
-        }
-
-        
-
-        
-        .inputs {
-            background-color: rgba(255, 255, 255, 0);
-            width: 325px;
-            height: 400px;
-            color: rgb(0, 0, 0);
-            padding: 0px;
-            padding-top: 85px;
-            display: flex;
-            flex-direction: column;
-            margin-left: -78px;
-            align-items: center;
-            
-        }
-        .formulario {
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            align-items: flex-start;
-            gap: 5px;
-            
-        }
-        
-        input {
-            
-            width: 100px;
-            height: 50px;
-            background-color: transparent;
-            border: solid 2px;
-            border-radius: 5%;
-            border-color: #8d8d8d8c;
-        }
-        .perguntas{
-            width: 219px;
-            height: 70px;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-            
-        }
-
-        /* .response {
-            background-color: rgb(255, 255, 255);
-            width: 300px;
-            margin: 50px;
-            color: black;
-            padding: 30px;
-            
-        } */
-
-        .button {
-            background-color: #000000; 
-            border: solid #8d8d8d 3px;
-            border-radius: 5%;
-            color: white;
-            padding: 10px 30px;
-            text-align: center;
-            display: flex;
-            
-            justify-self: center;
-            align-self: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            
-        }
-
-        footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000000;
-            color: white;
-            width:100vw;
-            height: 40px;
-            padding: 0;
-            margin: 0;
-            position: fixed;
-            bottom: 0;
-        }
-    </style>
-</html>
-
-    <script>
-        function checkNumber(num) { // Verifica se o número digitado é válido
-            while(isNaN(num) || num == 0){
-            num = prompt("Voce digitou um número invalido. Digite um número válido!").replace(" ", "").replace(",", ".");
-            num = parseFloat(num);
-            }
-            return num;
-        }
-    
-        // Recebe a entrada da distancia percorrida e substitui a virgula por ponto e tira os espaços vazios
-        var distance_Traveled = prompt("Qual a distância percorrida da sua casa até o seu trabalho? (em KM)").replace(" ", "").replace(",", ".");
-        // Transforma em number
-        distance_Traveled = parseFloat(distance_Traveled);
-    
-        // Chama a função de validação
-        distance_Traveled = checkNumber(distance_Traveled);
-        
-        // Recebe a entrada do consumo médio e substitui a virgula por ponto e tira os espaços vazios
-        var avarege_Consuption = prompt("Qual o consumo médio do seu veículo? (em Km/L)").replace(" ", "").replace(",", ".");
-        // Transforma em number
-        avarege_Consuption = parseFloat(avarege_Consuption);
-    
-        // Chama a função de validação
-        avarege_Consuption = checkNumber(avarege_Consuption);
-    
-        // Calcula o consumo necessário
-        var consumption_Necessary_Liters = distance_Traveled / avarege_Consuption;
-    
-        // Operador ternário para colocar a frase no plural ou não
-        var liter = consumption_Necessary_Liters <= 1 ? "é " + consumption_Necessary_Liters.toFixed(2) + " liter" : "são " + consumption_Necessary_Liters.toFixed(2) + " liters";
-    
-        // Exibe a quantidade necessária
-        alert(`O consumo necessário ${liter}.`);
-    
-        // Recebe a quantidade de postos
-        let number_Gas_Station_Surveyed = prompt("Em quantos postos você pesquisou?");
-        number_Gas_Station_Surveyed = parseInt(number_Gas_Station_Surveyed);
-    
-        // Verifica se é número
-        number_Gas_Station_Surveyed = checkNumber(number_Gas_Station_Surveyed);
-
-        // Cria a variavel que vai ser utilizada para fazer a média
-        let sum_Prices_Surveyed = 0;
-        sum_Prices_Surveyed = parseFloat(sum_Prices_Surveyed);
-    
-        // Cria a variavel que vai ser utilizada para exibir o menor valor pesquisado
-        let lowest_Price_Surveyed = 0;
-        //lowest_Price_Surveyed = parseFloat(lowest_Price_Surveyed);
-    
-        for (var i = 1; i < number_Gas_Station_Surveyed + 1; i++) { // Cria um laço para cada posto pesquisado
-
-            // Recebe o preço de cada posto
-            let gas_Station_Price = prompt(`Digite o valor encontrado (em R$) no posto ${i}:`).replace(" ", "").replace(",", ".");
-            gas_Station_Price = parseFloat(gas_Station_Price);
-    
-            // Verifica se é número
-            gas_Station_Price = checkNumber(gas_Station_Price);
-    
-            if (i == 1) { // Caso seja primeira interção define o preço do posto como o menor preço
-                lowest_Price_Surveyed = gas_Station_Price;
-            } else { 
-                if (gas_Station_Price < lowest_Price_Surveyed){
-                lowest_Price_Surveyed = gas_Station_Price;
-                }
-            }
-    
-            // Incrementa o preço do combustivel na variavel de soma
-            sum_Prices_Surveyed = gas_Station_Price + sum_Prices_Surveyed;
-        }
-        
-        // Calcula amédia
-        let media = sum_Prices_Surveyed / number_Gas_Station_Surveyed;
-        
-        // Calcula o gasto diario da ida e volta do percurso
-        let daily_Expense = 2 * (consumption_Necessary_Liters * lowest_Price_Surveyed);
-        
-        //alert(`O consumo necessário ${liter}.\nO menor valor pesquisado é R$ ${lowest_Price_Surveyed.toFixed(2)}.\nA média dos valores pesquisados é R$ ${media.toFixed(2)}.\nO gasto diário (ida e volta) é R$ ${daily_Expense.toFixed(2)}.`);
-        
-        function imprimeTexto() { // Muda o o texto exibido no HTML
-            document.querySelector(".consumption_Necessary_Liters").innerHTML = `Consumo necessário ${liter}`;
-            document.querySelector(".lowest_Price_Surveyed").innerHTML = `Menor valor pesquisado: R$ ${lowest_Price_Surveyed.toFixed(2)}`;
-            document.querySelector(".media").innerHTML = `Média dos valores pesquisados: R$ ${media.toFixed(2)}`;
-            document.querySelector(".daily_Expense").innerHTML = `Gasto diário (ida e volta): R$ ${daily_Expense.toFixed(2)}`;
-        }
-    </script>
 </body>
-
+<script type="text/javascript" src="teste_do_script.js"></script>
 </html>
