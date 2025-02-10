@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+font-family:'FontCalculator';
+src: url(Calculator.ttf);
+}
+
+body {
+    font-family: "Roboto", serif;
+    margin: 0;
+    padding: 0;
+    background-image: 
+    linear-gradient(to left,  rgb(255, 255, 255), rgb(255, 255, 255) ,rgba(255, 255, 255, 0.527),  rgba(105, 105, 105, 0)), /* Gradiente de escurecimento */
+    url(posto-fundo.jpg);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+}
+
+main{
+    font-family: "Roboto", serif;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    align-self: first baseline;
+    margin: 70px 0px;
+    margin-right: 00px;
+    max-width: 270px;
+    max-height: 170px;
+    width: auto;
+    height: auto;
+}
+
+.fundo {
+    display: flex;
+    background-color: white;
+    height: 100vh;
+    align-self: self-end;
+}
+
+.response {
+    color: black;
+    background-image: url(posto-de-gasolina\ \(1\)\ \(2\).png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 50vw;
+    height: 900px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    
+    overflow: visible;
+}
+
+.textos_da_Resposta {
+    margin-top: 110px;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(70, 138, 70);
+    width: 300px;
+    height: 160px;
+    padding: 18px;
+    
+}
+
+.consumption_Necessary_Liters {
+    font-family: "FontCalculator";
+    font-size: 50px;
+    margin: 20px;
+}
+
+
+
+
+.inputs {
+    background-color: rgba(255, 255, 255, 0);
+    width: 325px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+    padding: 0px;
+    padding-top: 85px;
+    display: flex;
+    flex-direction: column;
+    margin-left: -78px;
+    align-items: center;
+    
+}
+.formulario {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    
+}
+
+input {
+    
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    border: solid 2px;
+    border-radius: 5%;
+    border-color: #8d8d8d8c;
+}
+.perguntas{
+    width: 219px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+
+.button_Result {
+    background-color: #000000; 
+    border: solid #8d8d8d 3px;
+    border-radius: 5%;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 3px -3px 11px 3px rgba(0, 0, 0, 0.116);
+}
+
+.button_Add {
+    margin-left: 5px;
+    height: 40px;
+    width: 55px;
+    padding: 0px;
+    background-color: #000000; 
+    border: solid #8d8d8d 3px;
+    border-radius: 5%;
+    color: white;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    box-shadow: 3px -3px 11px 3px rgba(0, 0, 0, 0.116);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    width:100vw;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+}
