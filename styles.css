@@ -2,7 +2,7 @@
 
 @font-face {
 font-family:'FontCalculator';
-src: url(Calculator.ttf);
+src: url(midia/Calculator.ttf);
 }
 
 body {
@@ -11,7 +11,7 @@ body {
     padding: 0;
     background-image: 
     linear-gradient(to left,  rgb(255, 255, 255), rgb(255, 255, 255) ,rgba(255, 255, 255, 0.527),  rgba(105, 105, 105, 0)), /* Gradiente de escurecimento */
-    url(posto-fundo.jpg);
+    url(midia/posto-fundo.jpg);
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
 }
@@ -23,7 +23,6 @@ main{
     height: 100vh;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 0;
     padding: 0;
 }
@@ -47,7 +46,7 @@ main{
 
 .response {
     color: black;
-    background-image: url(posto-de-gasolina\ \(1\)\ \(2\).png);
+    background-image: url(midia/posto-de-gasolina.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -71,17 +70,13 @@ main{
     width: 300px;
     height: 160px;
     padding: 18px;
-    
 }
 
-.consumption_Necessary_Liters {
+.resposta_valor {
     font-family: "FontCalculator";
     font-size: 50px;
     margin: 20px;
 }
-
-
-
 
 .inputs {
     background-color: rgba(255, 255, 255, 0);
@@ -89,11 +84,11 @@ main{
     height: 400px;
     color: rgb(0, 0, 0);
     padding: 0px;
-    padding-top: 85px;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     margin-left: -78px;
-    align-items: center;
+    justify-self: flex-end;
     
 }
 .formulario {
@@ -175,5 +170,22 @@ footer {
     padding: 0;
     margin: 0;
     position: fixed;
-    bottom: 0;
+    bottom: 0;text-decoration: none;
+}
+
+.links_Footer {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.links_Footer:hover {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 17px;
+}
+
+button:hover {
+    font-weight: bold; 
 }
