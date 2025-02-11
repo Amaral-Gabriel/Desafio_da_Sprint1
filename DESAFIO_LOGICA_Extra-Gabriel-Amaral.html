@@ -10,12 +10,12 @@
     <header></header>
     <main>
         <div class="fundo"></div>
-        <img class="logo" src="ford-logo-6.png" alt="Logo da Ford azul">
+        <img class="logo" src="midia/ford-logo-6.png" alt="Logo da Ford azul">
         <div class="content"></div>
         <div class="response">
             <div class="textos_da_Resposta">
-                <p class="consumo_Necessario">Consumo necessário:</p>
-                <p class="consumption_Necessary_Liters">25</p>
+                <p id="resposta_texto" class="resposta_texto">Digite as informações</p>
+                <p id="resposta_valor" class="resposta_valor">0</p>
                 <div class="inputs">
                     <form class="formulario" id="form">
                         <div class="perguntas">
@@ -31,7 +31,7 @@
                             <input type="number" id="numero_de_postos" step="1" min="1" placeholder="Exemplo: 4"><br>
                         </div>
                         <div class="perguntas">
-                            <label for="preco_do_posto">Qual o valor no posto 1? (em R$)</label>
+                            <label for="preco_do_posto" id="preco_do_posto_texto">Qual o valor no posto 1? (em R$)</label>
                             <input type="number" id="preco_do_posto" step="0.01" min="0.01" placeholder="Exemplo: 5,94">
                             <button type="button" id="button_Add" class="button_Add">Adicionar +</button>
                         </div>
@@ -42,7 +42,7 @@
         </div>
     </main>
     <footer>
-        <p>Criado por Gabriel Amaral para o Ford ENTER</p>
+        <p>Criado por <a class="links_Footer" href="https://github.com/Amaral-Gabriel" target="_blank">Gabriel Amaral</a> para o <a class="links_Footer" href="https://www.ford.com.br/sobre-a-ford/ford-enter/" target="_blank">Ford ENTER</a>.</p>
     </footer>
 </body>
 <script type="text/javascript" src="teste_do_script.js"></script>
